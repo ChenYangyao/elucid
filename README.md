@@ -6,7 +6,7 @@ This repository contains usage for the data products of the ELUCID project. For 
 
 ### What we have done?
 
-A method we developed for the reconstruction of the initial density field is applied to SDSS DR7 (North Cap, redshift $\approx 0 - 0.12$ ). A high-resolution N-body constrained simulation (CS; with $3072^3$ particles in a $500\,h^{-1}{\rm Mpc}$ box) is performed to evolve the reconstructed initial condition and recover the evolution history of the local Universe.
+A method we developed for the reconstruction of the initial density field is applied to SDSS DR7 (North Cap, redshift $\approx 0 - 0.12$ ). A high-resolution N-body constrained simulation (CS; with $3072^3$ particles in a $500\ h^{-1}{\rm Mpc}$ box) is performed to evolve the reconstructed initial condition and recover the evolution history of the local Universe.
 Statistical properties of cosmic web and halo populations are found to be accurately reproduced by the CS. 
 
 ### Example usages of the constrained simulation
@@ -36,7 +36,7 @@ Statistical properties of cosmic web and halo populations are found to be accura
 ***Cosmology***: the project is performed in a flat $\Lambda$-CDM cosmology with parameters 
 consistent with the WMAP5 results (Dunkley et al. 2009): 
 $\Omega_{\rm K,0}=0$, $\Omega_{\rm M,0}=0.258$, $\Omega_{\rm B,0}=0.044$, 
-$\Omega_{\rm \Lambda, 0}=0.742$, $H_0 = 100\ h\,{\rm km\,s^{-1}\,Mpc^{-1}}$ 
+$\Omega_{\rm \Lambda, 0}=0.742$, $H_0 = 100\ h\ {\rm km\ s^{-1}\ Mpc^{-1}}$ 
 with $h=0.72$, and a spectral index of $n=0.96$ with an amplitude specified by 
 $\sigma_8=0.80$ for the Gaussian initial density field.
 
@@ -46,10 +46,10 @@ $\sigma_8=0.80$ for the Gaussian initial density field.
 |---|---|---
 | $N_{\rm snapshot}$ | 101 | Number of snapshots. Note that the last two snapshots are redundant -- just ignore the last one.|
 | $N_{\rm chunks}$   | 2048   | Number of files into which each snapshot are stored |
-| $L_{\rm box}$ | $500.0\,h^{-1}{\rm Mpc}$ | Side length of the periodic cubic box |
+| $L_{\rm box}$ | $500.0\ h^{-1}{\rm Mpc}$ | Side length of the periodic cubic box |
 | $N_{\rm cell, all}$ | 16777216 | Number of space-filling (Peano-Hilbert) cells (i.e. $256^3$) used partition the simulation box |
 | $N_{\rm p, all}$ | 28991029248 | Total number of dark matter particles (i.e. $3072^3$) in a snapshot |
-| $m_{\rm p}$ | $0.03087502 | Mass (in $10^{10} h^{-1}\,M_\odot$) of each dark matter particle |
+| $m_{\rm p}$ | 0.03087502 | Mass (in $10^{10}\ h^{-1}\ M_\odot$) of each dark matter particle |
 | $N_{\rm bit\ mask}$ | 36 | Number of bits used to store the particle IDs |
 | $\epsilon_{\rm DM}$ | $3.5\ h^{-1}{\rm ckpc}$ | Gravitational softening length (comoving) |
 
@@ -89,12 +89,13 @@ given in the simulation frame, unless specifically clarified.
 
 The Cartesian coordinates in the observation frame (J2000; hereafter denoted with a subscript `J2000`) 
 and in the simulation frame (hereafter denoted with a subscript `sim`) 
-are related through a translation along ${\bf x}_0$ and a rotation in the $x$-$y$ plane:
-$$
-{\bf x}_{\rm J2000} = \mathcal{R} ({\bf x}_{\rm sim} - {\bf x}_{\rm 0}),
-$$
-with the translation vector ${\bf x}_{\rm 0} = (370, 370, 30)\, h^{-1} {\rm Mpc}$,
+are related through a translation along $`\vec{x}_0`$ and a rotation in the $`x`$-$`y`$ plane:
+
+$$\vec{x}_{\rm J2000} = \mathcal{R} (\vec{x}_{\rm sim} - \vec{x}_{\rm 0})\ ,$$
+
+where the translation vector $\vec{x}_{\rm 0} = (370, 370, 30)\ h^{-1} {\rm Mpc}$,
 the rotation matrix
+
 $$
 \mathcal{R} = \begin{pmatrix}
 {\rm cos}(\phi_0)   &  {\rm sin}(\phi_0)    & 0 \\
@@ -102,7 +103,8 @@ $$
 0  &  0   &   1
 \end{pmatrix} ,
 $$
-the rotation angle $\phi_0 = 39^{\circ}$.
+
+and the rotation angle $\phi_0 = 39^{\circ}$.
 
 The transformation is illustrated in the following figure:
 
@@ -111,10 +113,10 @@ The transformation is illustrated in the following figure:
 Note that
 - The Cartesian coordinates in the `sim` frame is defined so that one corner of the cubic box is at the origin, 
 and three sides of the box are along the Cartesian axes. This means all coordinates in the `sim` frame 
-are in the range of $[0, 500]\,h^{-1}{\rm Mpc}$.
+are in the range of $[0, 500]\ h^{-1}{\rm Mpc}$.
 - The Cartesian coordinates in the `J2k` frame is defined so that the $+x$ axis 
 points to `RA=0`, `Dec=0`, the $+y$ axis points to `RA=90 deg`, `Dec=0`, and the $+z$ axis 
-points to `Dec=90 deg`. This means ${\bf x}_{\rm J2000} = d_{\rm c} \left( \cos {\rm Dec} \cdot \cos {\rm RA}, \cos {\rm Dec} \cdot \sin {\rm RA}, \sin {\rm Dec} \right)$
+points to `Dec=90 deg`. This means $`\vec{x}_{\rm J2000} = d_{\rm c} \left( \cos {\rm Dec} \cdot \cos {\rm RA}, \cos {\rm Dec} \cdot \sin {\rm RA}, \sin {\rm Dec} \right)`$
 for a galaxy at comoving distance $d_{\rm c}$, right ascension `RA` and declination `Dec`.
 - Rotation matrix ${\bf R}$ is orthogonal (i.e. ${\bf R}^{-1} = {\bf R}^{\rm T}$ can be used to transform from `J2000` back to `sim` coordinates).
-- Vectors and tensors can also be transformed. For example, the velocity vector is transformed as ${\bf v}_{\rm J2000} = \mathcal{R} {\bf v}_{\rm sim}$.
+- Vectors and tensors can also be transformed. For example, the velocity vector is transformed as $`\vec{v}_{\rm J2000} = \mathcal{R} \vec{v}_{\rm sim}`$.

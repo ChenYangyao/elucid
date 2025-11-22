@@ -23,6 +23,17 @@ Statistical properties of cosmic web and halo populations are found to be accura
 - [Yangyao Chen et al. 2019](https://doi.org/10.3847/1538-4357/ab0208) (ApJ 872, 180; Paper-VI, CV-free galaxy luminosity and stellar mass functions);
 - [Ziwen Zhang et al. 2025](https://doi.org/10.1038/s41586-025-08965-5) (Nature 642, 47--52; CV-free clustering measurements for SDSS dwarfs).
 
+## Tutorial
+
+To use the data products, please refer to the specification given [below](#specification-of-the-data-products) for 
+the details of the data formats.
+
+Code samples are also provided to demonstrate how to read the data and process 
+them to produce quantities often used in publications.
+- [load_trees.ipynb](./docs/code_samples/load_trees.ipynb): load merger trees, 
+find main branches, evaluate formation times.
+
+
 ## Specification of the data products
 
 ### List of data products

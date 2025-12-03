@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elucid"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Yangyao Chen", email="yangyaochen.astro@foxmail.com" }
 ]

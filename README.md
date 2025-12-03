@@ -30,6 +30,7 @@ the details of the data formats.
 
 Code samples are also provided to demonstrate how to read the data and process 
 them to produce quantities often used in publications.
+- [geometry_and_coordinates.ipynb](./docs/code_samples/geometry_and_coordinates.ipynb): the geometry of the reconstruction volume and coordinate transformation between the simulation frame and the observation frame.
 - [load_trees.ipynb](./docs/code_samples/load_trees.ipynb): load merger trees, 
 find main branches, evaluate formation times.
 

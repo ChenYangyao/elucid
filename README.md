@@ -25,17 +25,18 @@ Statistical properties of cosmic web and halo populations are found to be accura
 
 ## Tutorial
 
-To use the data products, please refer to the specification given [below](#specification-of-the-data-products) for 
+To use the data products, please refer to the [Data specification](#data-specification) for 
 the details of the data formats.
 
 Code samples are also provided to demonstrate how to read the data and process 
 them to produce quantities often used in publications.
-- [geometry_and_coordinates.ipynb](./docs/code_samples/geometry_and_coordinates.ipynb): the geometry of the reconstruction volume and coordinate transformation between the simulation frame and the observation frame.
+- [geometry_and_coordinates.ipynb](./docs/code_samples/geometry_and_coordinates.ipynb): the geometry (mask file) of the reconstruction volume; 
+coordinate transformation among the simulation frame, the J2000 Cartesian frame, and J2000 RA, Dec, z; the correction for redshift-space distortion (RSD).
 - [load_trees.ipynb](./docs/code_samples/load_trees.ipynb): load merger trees, 
 find main branches, evaluate formation times.
 
 
-## Specification of the data products
+## Data specification
 
 ### List of data products
 
@@ -95,9 +96,14 @@ Here we list the available snapshots ($s$) and the corresponding redshifts ($z$)
 
 ### The coordinate system
 
-The Halo-Domain Field is reconstructed from SDSS. For the CS to be run from the field, 
-the SDSS survey volume is embedded into a cubic box. Thus, all of data products are 
-given in the simulation frame, unless specifically clarified.
+The Halo-Domain Field is reconstructed from SDSS galaxies. 
+For the CS to be run from the field, the SDSS survey volume is embedded into a cubic box. 
+All of data products are given in the simulation frame, unless specifically clarified.
+Both Halo-Domain Field and CS match the underlying density field of the
+real local Universe in, and only in the 'reconstructed volume', which is given 
+as a mask file (see the code sample `geometry_and_coordinates.ipynb` in [Tutorial](#tutorial) for the usage).
+The grey volume in the figure below roughly illustrates the reconstructed volume 
+within the cubic box.
 
 The Cartesian coordinates in the observation frame (J2000; hereafter denoted with a subscript `J2000`) 
 and in the simulation frame (hereafter denoted with a subscript `sim`) 
@@ -117,6 +123,10 @@ $$
 $$
 
 and the rotation angle $\phi_0 = 39^{\circ}$.
+
+See the code sample `geometry_and_coordinates.ipynb` in [Tutorial](#tutorial) for 
+how the coordinate transformation (among simulation frame,
+J2000 Cartesian frame, and J2000 `(RA, Dec, z)`) is implemented in practice.
 
 The transformation is illustrated in the following figure:
 
